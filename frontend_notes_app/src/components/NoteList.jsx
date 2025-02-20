@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Component.css"
 import NoteItem from './NoteItem'
+import Notes from '../pages/Notes';
+import { FaPlus } from "react-icons/fa6";
+
 function NoteList() {
+
+  const [showPopup, setShowPopup] = useState(false);
     const arr =[
         {text_note:"this is demo text1",date:"May 21, 2020",id:1,div_color:"#1A4D2E"},//3
         {text_note:"this is demo text2",date:"May 21, 2020",id:2,div_color:"#3E3232"},//2
@@ -20,12 +25,38 @@ function NoteList() {
 
     ]
   return (
+    <div className='flex_main'>
+      <div className='flex'>
+      <div className="edit_icon_1 margin_div color_icon_1 "   onClick={() => setShowPopup(true)}>
+        <FaPlus />
+      </div>
+     
+      <div className="edit_icon_1 margin_div  color_icon_2"   onClick={() => setShowPopup(true)}>
+        <FaPlus />
+      </div>
+
+      <div className="edit_icon_1 margin_div  color_icon_3"   onClick={() => setShowPopup(true)}>
+        <FaPlus />
+      </div>
+      <div className="edit_icon_1 margin_div  color_icon_4"   onClick={() => setShowPopup(true)}>
+        <FaPlus />
+      </div>
+      <div className="edit_icon_1 margin_div  color_icon_5"   onClick={() => setShowPopup(true)}>
+        <FaPlus />
+      </div>
+
+      </div>
+      
+      {/* Show the Notes pop-up when needed */}
+      {showPopup && <Notes closePopup={() => setShowPopup(false)} />}
     <div className='noteList'>
+      
        {
         arr.map((demo)=>(
             <NoteItem key={demo.id} demo_text={demo}/>
         ))
        }
+    </div>
     </div>
   )
 }

@@ -175,4 +175,46 @@ button:focus-visible {
   .link_deco:hover {
     text-decoration: underline royalblue;
   }
+
+  ._index_z{
+    z-index: 3;
+  }
   
+  .margin_div{
+    margin: 20px;
+  }
+
+  .edit_icon_1 {
+   
+    /* background: rgb(2, 251, 247); */
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.color_icon_1{
+background: #01204E;
+}
+.color_icon_2{
+  background:#3E3232 ;
+}
+.color_icon_3{
+  background: #1A4D2E;
+}
+.color_icon_4{
+  background:#32012F ;
+}
+.color_icon_5{
+  background: #A79277;
+}
+
+.flex_main{
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  flex-direction: column;
+}
