@@ -8,24 +8,21 @@ import { Routes, Route } from "react-router-dom";
 import Header from './header_footer/Header'
 import Footer from './header_footer/Footer'
 
+import Body_between from './header_footer/Body_between'
+
 function App() {
- 
+
 
   return (
     <>
-      {/* <h1>This is a notes app</h1> */}
-      <Header/>
-      {/* <Login/> */}
+      <Header />
       <Routes>
-        <Route path='/notelist' element={<NoteList/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
+        <Route path='/notelist' element={<NoteList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path='/' element={<Body_between />} />
       </Routes>
-      {/* <Register/> */}
-      {/* <NoteItem/> */}
-      {/* <NoteList/> */}
-
-      <Footer/>
+      <Footer />
     </>
   )
 }

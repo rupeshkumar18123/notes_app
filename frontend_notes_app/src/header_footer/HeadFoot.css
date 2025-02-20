@@ -69,3 +69,34 @@
     
 }
 
+.social_app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.social_app_icon{
+    margin: 8px;
+    cursor: pointer;
+}
+
+.lottie_animation{
+  position: relative;
+}
+
+.main_body_landing h1{
+  
+        color: rgb(243, 247, 24);
+        font-weight: 700;
+        font-size: 30px;
+          
+}
+.main_body_landing{
+    height: 60vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+}
