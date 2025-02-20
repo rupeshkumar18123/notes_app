@@ -1,0 +1,71 @@
+.head{
+    width: 90vw;
+    height: 50px;
+    background: rgb(188, 222, 225);
+    /* rgb(225, 188, 225); */
+    border-radius: 25px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    align-items: center;
+    position: relative;
+    box-shadow:  3px 3px 6px #676767,
+    -6px -6px 16px #ffffff;
+    
+    
+}
+.head h1{
+ color: white;
+ font-weight: 700;
+ font-size: 30px;
+    
+}
+
+.icon_expand{
+    width: 32px;
+    height: 32px;
+    background: #b989b8f3;
+    /* #b989b8f3 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    /* position: absolute;
+    right: 10px; */
+}
+.user_head{
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .username_display{
+        display: none;
+    }
+}
+
+.headname{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_main{
+    width: 90vw;
+    position: fixed;
+    bottom: 5px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+

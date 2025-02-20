@@ -1,0 +1,90 @@
+.noteitem{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 20px;
+    /* Light orange background */
+    justify-content: space-between;
+    position: relative;
+    /* background: linear-gradient(145deg, #cacaca, #f0f0f0); */
+    box-shadow:  6px 6px 16px #676767,
+                 ;
+                
+}
+
+.noteitem_color{
+    background: #6cfe67; 
+}
+.note_text {
+   
+    font-weight: 400;
+    padding-top: 1rem;
+    color: slateblue;
+}
+
+.date_span {
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.edit_icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: black;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.noteList{
+    width: 90vw;
+    height: auto;
+    display: flex;
+    margin-bottom: 20vh;
+    gap: 15px;
+    padding: 5px;
+    border-radius: 20px;
+    background: #fecd67; /* Light orange background */
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    /* background: linear-gradient(145deg, #cacaca, #f0f0f0); */
+    box-shadow:  6px 6px 16px #676767,
+                 -6px -6px 16px #ffffff;
+                
+}
+
+/* Responsive behavior */
+@media (max-width: 2000px) {
+    .noteitem {
+        flex: 1 1 calc(25% - 20px); /* Show 3 per row on tablets */
+    }
+}
+@media (max-width: 1024px) {
+    .noteitem {
+        flex: 1 1 calc(33.33% - 20px); /* Show 3 per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .noteitem {
+        flex: 1 1 calc(50% - 20px); /* Show 2 per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .noteitem {
+        flex: 1 1 100%; /* Show 1 per row on mobile */
+    }
+}
