@@ -11,8 +11,14 @@ router.use(cors());
     Notes.create(req.body)
     .then(result=> resp.json({msg:"success_added_note",result}))
     .catch(err=>resp.json(err));
-
-
  });
 
+ router.post("/retrivenotes",(req,resp)=>{
+   const {user_email_id} = req.body;
+     Notes.find({user_email_id:user_email_id})
+     .then(result=>{
+      resp.send(result)
+     })
+     .catch(err=>resp.send(err));
+ })
  module.exports = router;
