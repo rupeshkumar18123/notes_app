@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Page.css";
 import axios from "axios";
 
-function Notes({ closePopup, div_colour }) {
+function Notes({ closePopup, div_colour,refreshNotes }) {
   const [note_text, setNoteText] = useState("");
   const [user_email_id, setEmail] = useState(sessionStorage.getItem("logged_in_email") || "user_not_login");
   // const [div_color,SetDivColor]=useState(div_colour.div_color);
@@ -34,6 +34,7 @@ function Notes({ closePopup, div_colour }) {
       .then(result => {
         if (result.data.msg === "success_added_note") {
           alert(`Input Submitted: ${note_text}`);
+          refreshNotes();
           closePopup(); // Close pop-up after submission
         } else {
           alert(`Input not Submitted: have some problem`);

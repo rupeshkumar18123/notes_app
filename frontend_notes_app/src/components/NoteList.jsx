@@ -10,6 +10,12 @@ function NoteList() {
   const [showPopup, setShowPopup] = useState(false);
   const [user_email_id, setEmail] = useState(sessionStorage.getItem("logged_in_email") || "user_not_login");
   const [notes, setNotes] = useState([]); //  Store fetched notes
+  const [reload, setReload] = useState(false);  // ✅ Track changes
+
+  // Function to reload notes
+  const refreshNotes = () => {
+    setReload(prev => !prev);  //  Toggle state to trigger re-fetch
+  };
   // const arr = [
   //   { text_note: "this is demo text1", date: "May 21, 2020", id: 1, div_color: "#1A4D2E" },//3
   //   { text_note: "this is demo text2", date: "May 21, 2020", id: 2, div_color: "#3E3232" },//2
@@ -35,7 +41,7 @@ function NoteList() {
         setNotes(result.data);
       })
       .catch(err => console.log(err));
-  }, [user_email_id]);
+  }, [user_email_id,reload]);
 
   return (
     <div className='flex_main'>
@@ -82,7 +88,7 @@ function NoteList() {
       </div>
 
       {/* Show the Notes pop-up when needed */}
-      {showPopup && <Notes closePopup={() => setShowPopup(false)} div_colour={{ div_color: div_color_set }} />}
+      {showPopup && <Notes closePopup={() => setShowPopup(false)} div_colour={{ div_color: div_color_set }} refreshNotes={refreshNotes} />}
       <div className='noteList'>
 
         {/* {
