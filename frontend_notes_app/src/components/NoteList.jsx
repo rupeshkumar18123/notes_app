@@ -5,7 +5,7 @@ import Notes from '../pages/Notes';
 import { FaPlus } from "react-icons/fa6";
 
 function NoteList() {
-
+  const [div_color_set ,SetDivColor] = useState("#67fea6");
   const [showPopup, setShowPopup] = useState(false);
     const arr =[
         {text_note:"this is demo text1",date:"May 21, 2020",id:1,div_color:"#1A4D2E"},//3
@@ -27,28 +27,38 @@ function NoteList() {
   return (
     <div className='flex_main'>
       <div className='flex'>
-      <div className="edit_icon_1 margin_div color_icon_1 "   onClick={() => setShowPopup(true)}>
+      <div className="edit_icon_1 margin_div color_icon_1 "   onClick={() => {setShowPopup(true)
+        SetDivColor("#01204E");
+      }}>
         <FaPlus />
       </div>
      
-      <div className="edit_icon_1 margin_div  color_icon_2"   onClick={() => setShowPopup(true)}>
+      <div className="edit_icon_1 margin_div  color_icon_2"   onClick={() => {setShowPopup(true)
+        SetDivColor("#3E3232");
+      }}>
         <FaPlus />
       </div>
 
-      <div className="edit_icon_1 margin_div  color_icon_3"   onClick={() => setShowPopup(true)}>
+      <div className="edit_icon_1 margin_div  color_icon_3"   onClick={() => {setShowPopup(true)   
+        SetDivColor("#1A4D2E");
+      }}>
         <FaPlus />
       </div>
-      <div className="edit_icon_1 margin_div  color_icon_4"   onClick={() => setShowPopup(true)}>
+      <div className="edit_icon_1 margin_div  color_icon_4"   onClick={() => {setShowPopup(true)
+        SetDivColor("#32012F");
+      }}>
         <FaPlus />
       </div>
-      <div className="edit_icon_1 margin_div  color_icon_5"   onClick={() => setShowPopup(true)}>
+      <div className="edit_icon_1 margin_div  color_icon_5"   onClick={() =>{ setShowPopup(true)
+        SetDivColor("#A79277");
+      }}>
         <FaPlus />
       </div>
 
       </div>
       
       {/* Show the Notes pop-up when needed */}
-      {showPopup && <Notes closePopup={() => setShowPopup(false)} />}
+      {showPopup && <Notes closePopup={() => setShowPopup(false)} div_colour={div_color_set} />}
     <div className='noteList'>
       
        {

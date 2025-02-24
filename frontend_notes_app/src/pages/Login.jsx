@@ -8,7 +8,7 @@ function Login() {
   const [password,setPassword]=useState();
 const navigate = useNavigate();
   const handle_login= ()=>{
-    axios.post("http://localhost:3000/login",{email,password})
+    axios.post("http://localhost:3000/api/login",{email,password})
     .then(result=>{
       if(result.data.msg === "successful_login"){
         alert("successful_login");

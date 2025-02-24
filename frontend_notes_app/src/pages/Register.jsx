@@ -11,7 +11,7 @@ function Register() {
    const navigate = useNavigate();
 
    const handle_submit = ()=>{
-       axios.post("http://localhost:3000/register",{name,email,password})
+       axios.post("http://localhost:3000/api/register",{name,email,password})
        .then((result)=>{ 
         if(result.data.msg === "success"){
           console.log(result);
