@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NoteList from './components/NoteList'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from './header_footer/Header'
 import Footer from './header_footer/Footer'
 
 import Body_between from './header_footer/Body_between'
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      navigate("/");
+    };
+  }, [navigate]);
   return (
     <>
       <Header />
@@ -25,3 +33,7 @@ function App() {
 }
 
 export default App
+
+
+//make it one way --- if user is login then and only then you can
+// go to next page means on notelist and make user session for persisitent login

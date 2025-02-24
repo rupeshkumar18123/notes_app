@@ -2,7 +2,9 @@
  const Notes = require("../models/Note");
   const User = require("../models/User")
  const router = express.Router();
-
+const cors = require("cors");
+router.use(express.json());
+router.use(cors());
  router.post("/addnotes",async (req,resp)=>{
     //  const {user_email_id,note_text,div_color,date} = await req.body;
      

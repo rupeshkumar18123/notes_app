@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import Note_animation from "../assets/Note_animation.lottie?url"
 import "./HeadFoot.css"
 import { Link, useNavigate } from 'react-router-dom';
 
 function Body_between() {
+  const [isdis,setIsDis] =useState(false);
     const navigate=useNavigate()
     const handle_login=()=>{
         navigate("/login");
     }
+    
+    const handle_looged_in=()=>{
+      if(sessionStorage.getItem("logged_in_email")){
+           setIsDis(true);
+      }
+    }
+    useEffect(handle_looged_in,[]);
   return (
   <div className='main_body_landing'>
     <DotLottieReact
@@ -20,11 +28,13 @@ function Body_between() {
     <h1>Transform your routine. Start now</h1>
   
 
-  <button onClick={handle_login} >Login</button>
+  <button onClick={handle_login} disabled={isdis} >Login</button>
   <Link to={"/register"}>
-  <button>Register</button>
+  <button disabled={isdis}>Register</button>
   </Link>
-
+{
+  isdis?<Link to={"/notelist"}><button >Note list</button></Link>: ""
+}
   </div>
   )
 }

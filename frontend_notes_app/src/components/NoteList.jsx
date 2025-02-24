@@ -5,7 +5,7 @@ import Notes from '../pages/Notes';
 import { FaPlus } from "react-icons/fa6";
 
 function NoteList() {
-  const [div_color_set ,SetDivColor] = useState("#67fea6");
+  const [div_color_set ,SetDivColor] = useState("");
   const [showPopup, setShowPopup] = useState(false);
     const arr =[
         {text_note:"this is demo text1",date:"May 21, 2020",id:1,div_color:"#1A4D2E"},//3
@@ -58,7 +58,7 @@ function NoteList() {
       </div>
       
       {/* Show the Notes pop-up when needed */}
-      {showPopup && <Notes closePopup={() => setShowPopup(false)} div_colour={div_color_set} />}
+      {showPopup && <Notes closePopup={() => setShowPopup(false)} div_colour={{ div_color: div_color_set }} />}
     <div className='noteList'>
       
        {
