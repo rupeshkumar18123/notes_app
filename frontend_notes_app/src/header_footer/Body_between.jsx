@@ -17,6 +17,23 @@ function Body_between() {
       }
     }
     useEffect(handle_looged_in,[]);
+
+    const handle_logout=()=>{
+      sessionStorage.removeItem("logged_in_email");
+      setIsDis(false);
+      alert("log out successful");
+    }
+
+     // const [username,setUsername] = useState("Login");
+    const [reload, setReload] = useState(false);  //  Track changes
+    
+      // Function to reload notes
+    const refreshNotes = () => {
+        setReload(prev => !prev);  //  Toggle state to trigger re-fetch
+      };
+    
+
+
   return (
   <div className='main_body_landing'>
     <DotLottieReact
@@ -33,7 +50,11 @@ function Body_between() {
   <button disabled={isdis}>Register</button>
   </Link>
 {
-  isdis?<Link to={"/notelist"}><button >Note list</button></Link>: ""
+  isdis?<>
+  <Link to={"/notelist"}><button >Note list</button></Link>    
+  <button onClick={handle_logout}>log out</button>
+  </>
+    : ""
 }
   </div>
   )

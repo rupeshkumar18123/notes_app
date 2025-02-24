@@ -10,7 +10,7 @@ function NoteList() {
   const [showPopup, setShowPopup] = useState(false);
   const [user_email_id, setEmail] = useState(sessionStorage.getItem("logged_in_email") || "user_not_login");
   const [notes, setNotes] = useState([]); //  Store fetched notes
-  const [reload, setReload] = useState(false);  // ✅ Track changes
+  const [reload, setReload] = useState(false);  //  Track changes
 
   // Function to reload notes
   const refreshNotes = () => {
@@ -37,10 +37,10 @@ function NoteList() {
   useEffect(() => {
     axios.post("http://localhost:3000/api/notes/retrivenotes", { user_email_id })
       .then(result => {
-        console.log(result);
+        // console.log(result);
         setNotes(result.data);
       })
-      .catch(err => console.log(err));
+      .catch(err => alert(err));
   }, [user_email_id,reload]);
 
   return (
