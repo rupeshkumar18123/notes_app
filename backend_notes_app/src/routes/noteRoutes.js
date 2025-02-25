@@ -20,5 +20,40 @@ router.use(cors());
       resp.send(result)
      })
      .catch(err=>resp.send(err));
- })
+ });
+
+// router.put("/updatenote/:id",(req,resp)=>{
+//    const noteId = req.params.id;
+//   Notes.findByIdAndUpdate( noteId,
+//     { note_text, date },
+//     { new: true } )
+//   .then(result=>{
+//     resp.json({msg:"note_updated",result});
+//    })
+//    .catch(err=>resp.json(err));
+// });
+
+
+router.put("/updatenote/:id", async (req, res) => {
+  try {
+    const { note_text, date } = req.body;
+    const noteId = req.params.id;
+
+    const updatedNote = await Notes.findByIdAndUpdate(
+      noteId,
+      { note_text, date },
+      { new: true } 
+    );
+
+    if (!updatedNote) {
+      return res.status(404).json({ msg: "Note not found" });
+    }
+
+    res.json({ msg: "note_updated", updatedNote });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
  module.exports = router;

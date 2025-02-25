@@ -99,7 +99,7 @@ function NoteList() {
 
         {
           notes.length > 0 ? notes.map((note) => (
-            <NoteItem key={note._id} demo_text={note} />
+            <NoteItem key={note._id} demo_text={note} refreshNotes={refreshNotes}/>
           )) : <p>No notes found</p>  //  Handle empty case
         }
       </div>

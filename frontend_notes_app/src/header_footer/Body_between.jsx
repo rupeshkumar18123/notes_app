@@ -16,22 +16,16 @@ function Body_between() {
            setIsDis(true);
       }
     }
-    useEffect(handle_looged_in,[]);
+    useEffect(handle_looged_in,[isdis]);
 
     const handle_logout=()=>{
       sessionStorage.removeItem("logged_in_email");
       setIsDis(false);
       alert("log out successful");
+     
     }
 
-     // const [username,setUsername] = useState("Login");
-    const [reload, setReload] = useState(false);  //  Track changes
-    
-      // Function to reload notes
-    const refreshNotes = () => {
-        setReload(prev => !prev);  //  Toggle state to trigger re-fetch
-      };
-    
+
 
 
   return (

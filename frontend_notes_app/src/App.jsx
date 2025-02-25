@@ -35,5 +35,3 @@ function App() {
 export default App
 
 
-//make it one way --- if user is login then and only then you can
-// go to next page means on notelist and make user session for persisitent login
