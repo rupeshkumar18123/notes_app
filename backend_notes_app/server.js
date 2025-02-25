@@ -2,9 +2,9 @@
 const express = require("express");
 const mongoose =require("mongoose");
 const cors = require("cors");
-const userRoutes = require("./routes/authRoutes");
-const notesRouter  =require("./routes/noteRoutes");
-require("./config/db");
+const userRoutes = require("./src/routes/authRoutes");
+const notesRouter  =require("./src/routes/noteRoutes");
+require("./src/config/db");
 
 const app = express();
 app.use(express.json());
