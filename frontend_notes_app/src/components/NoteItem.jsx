@@ -4,11 +4,13 @@
 import Update_notes from '../pages/update/Update_notes';
 import { MdDelete } from "react-icons/md";
 import axios from 'axios';
+const API_URL = "https://notes-app-opal-tau.vercel.app";
  function NoteItem({demo_text,refreshNotes}) {
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this note?")) {
-      axios.delete(`http://localhost:3000/api/notes/deletenote/${id}`)
+      
+      axios.delete(`${API_URL}/api/notes/deletenote/${id}`)
         .then(result => {
           alert("Note Deleted!");
           refreshNotes(); // ✅ Re-fetch notes after deleting

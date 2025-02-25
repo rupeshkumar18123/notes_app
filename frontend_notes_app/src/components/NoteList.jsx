@@ -4,7 +4,7 @@ import NoteItem from './NoteItem'
 import Notes from '../pages/Notes';
 import { FaPlus } from "react-icons/fa6";
 import axios from 'axios';
-
+const API_URL = "https://notes-app-opal-tau.vercel.app";
 function NoteList() {
   const [div_color_set, SetDivColor] = useState("");
   const [showPopup, setShowPopup] = useState(false);
@@ -35,7 +35,7 @@ function NoteList() {
   // ]
 
   useEffect(() => {
-    axios.post("http://localhost:3000/api/notes/retrivenotes", { user_email_id })
+    axios.post(`${API_URL}/api/notes/retrivenotes`, { user_email_id })
       .then(result => {
         // console.log(result);
         setNotes(result.data);

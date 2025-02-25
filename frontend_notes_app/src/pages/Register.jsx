@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./Page.css"
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
-
+const API_URL = "https://notes-app-opal-tau.vercel.app";
 function Register() {
    const [name,setName] = useState();
    const [email,setEmail]=useState();
@@ -47,7 +47,7 @@ function Register() {
 
 
 
-       axios.post("http://localhost:3000/api/register",{name,email,password})
+       axios.post(`${API_URL}/api/register`,{name,email,password})
        .then((result)=>{ 
         if(result.data.msg === "success"){
           // console.log(result);

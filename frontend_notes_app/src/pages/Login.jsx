@@ -3,6 +3,7 @@ import React, { useState ,useEffect} from 'react'
 import "./Page.css"
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+const API_URL = "https://notes-app-opal-tau.vercel.app";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -32,7 +33,7 @@ function Login() {
       return;
     } 
     
-    axios.post("http://localhost:3000/api/login", { email, password })
+    axios.post(`${API_URL}/api/login`, { email, password })
       .then(result => {
         if (result.data.msg === "successful_login") {
           alert("successful_login");

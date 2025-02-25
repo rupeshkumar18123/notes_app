@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../Page.css";
 import axios from "axios";
-
+const API_URL = "https://notes-app-opal-tau.vercel.app";
 function Update_notes({ closePopup, refreshNotes ,note_text_one_note,note_id }) {
     const [note_text, setNoteText] = useState(note_text_one_note);
 
     const handleSubmit = () => {
         const currentDate = new Date().toLocaleString();
-        axios.put(`http://localhost:3000/api/notes/updatenote/${note_id}`,{note_text,date:currentDate})
+        axios.put(`${API_URL}/api/notes/updatenote/${note_id}`,{note_text,date:currentDate})
         .then(result=>{
             if(result.data.msg === "note_updated"){
                 alert(`Updated Note : ${note_text}`);
