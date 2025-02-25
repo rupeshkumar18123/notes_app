@@ -218,3 +218,11 @@ background: #01204E;
   place-items: center;
   flex-direction: column;
 }
+
+
+.error-msg {
+  color: red;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+}

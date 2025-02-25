@@ -6,6 +6,7 @@ import axios from 'axios';
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
  
 
@@ -16,6 +17,21 @@ function Login() {
     }
   }, [navigate]);
   const handle_login = () => {
+
+    setErrorMsg(""); //  Reset error message before validation
+
+    //  Field validation (All fields are required)
+    if (!email || !password) {
+      setErrorMsg("Email and password are required.");
+      return;
+    }
+
+    // Email format validation (Basic check)
+    if (!email.includes("@") || !email.includes(".")) {
+      setErrorMsg("Enter a valid email address.");
+      return;
+    } 
+    
     axios.post("http://localhost:3000/api/login", { email, password })
       .then(result => {
         if (result.data.msg === "successful_login") {
@@ -53,6 +69,7 @@ function Login() {
           <span className="checkmark"></span>
           Remember me
         </label>
+        {errorMsg && <p className="error-msg">{errorMsg}</p>}
         <button onClick={handle_login}>Submit</button>
         <p className="signin">No account | <Link to="/register" className='link_deco'>Sign up</Link> </p>
       </div>

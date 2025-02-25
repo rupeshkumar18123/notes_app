@@ -8,13 +8,49 @@ function Register() {
    const [email,setEmail]=useState();
    const [password,setPassword]=useState();
    const [con_password,SetConPassword]=useState();
+   const [isChecked, setIsChecked] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
    const navigate = useNavigate();
 
    const handle_submit = ()=>{
+    setErrorMsg(""); // Reset error message before validation
+
+    if (!name || !email || !password || !con_password) {
+      setErrorMsg("All fields are required.");
+      return;
+    }
+
+    //  Email format validation (Basic check)
+    if (!email.includes("@") || !email.includes(".")) {
+      setErrorMsg("Enter a valid email address.");
+      return;
+    }
+
+    //  Password length validation
+    if (password.length < 6) {
+      setErrorMsg("Password must be at least 6 characters long.");
+      return;
+    }
+
+    //  Confirm password validation
+    if (password !== con_password) {
+      setErrorMsg("Passwords do not match.");
+      return;
+    }
+
+    // Checkbox validation
+    if (!isChecked) {
+      setErrorMsg("You must agree to the terms and conditions.");
+      return;
+    }
+
+
+
+
        axios.post("http://localhost:3000/api/register",{name,email,password})
        .then((result)=>{ 
         if(result.data.msg === "success"){
-          console.log(result);
+          // console.log(result);
           alert("user registered successfully");
           navigate("/login");
         }else{
@@ -39,10 +75,11 @@ function Register() {
 
 
         <label className="material-checkbox">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={() => setIsChecked(!isChecked)}/>
           <span className="checkmark"></span>
           i agree all terms and conditions
         </label>
+        {errorMsg && <p className="error-msg">{errorMsg}</p>}
         <button onClick={handle_submit}>Submit</button>
         <p className="signin">Already have an acount ? <Link to="/login" className='link_deco'>Signin</Link> </p>
       </div>
